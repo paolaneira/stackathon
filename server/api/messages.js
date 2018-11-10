@@ -28,7 +28,7 @@ router.post("/", async (req, res, next) => {
     } else {
       messageBody = "Attention! There is a mouse in your apartment";
       sfx.say(
-        "ATTENTION ATTENTION THERE IS A MOUSE IN THE APARTMENT",
+        "ATTENTION, ATTENTION, ATTENTION THERE IS A MOUSE IN THE APARTMENT",
         "random"
       );
 
