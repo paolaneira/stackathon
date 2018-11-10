@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="js/capture.js"></script>
+    <script src="js/ml5.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Cat-Feeder</title>
+  </head>
+  <link rel="stylesheet" href="./style.css" />
+
+  <body>
+    <h1>Welcome to the Cat-Feeder</h1>
+    <p>The first ML algorithm to keep your apartment clean from pests</p>
+
+    <!-- Videos Recorded for Training -->
+    <video
+      id="videoTraining"
+      muted
+      autoplay
+      loop
+      crossorigin="anonymous"
+      width="227"
+      height="227"
+      style="display:none"
+    ></video>
+    <!-- Ml5 Input video for prediction -->
+    <video
+      id="videoHidden"
+      muted
+      autoplay
+      crossorigin="anonymous"
+      width="227"
+      height="227"
+      style="display:none"
+    ></video>
+    <!-- UX Video -->
+    <video id="videoLive" muted autoplay crossorigin="anonymous"></video>
+    <!-- Prediction -->
+    <p id="prediction">Loading</p>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
