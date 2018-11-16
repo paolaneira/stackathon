@@ -1,10 +1,9 @@
 ("use strict");
 
-const callbackfunc = "./callbackfunc";
 let videosArray = [
-  "./videos/cover.mp4",
-  "./videos/videodog.mp4",
-  "./videos/clean.mp4"
+  "./videos/dog4.mp4",
+  "./videos/mouse.mp4",
+  "./videos/clear2.mp4"
 ]; //  videos array.
 let videoHidden = document.getElementById("videoHidden"); // ml5 input video 227px
 let videoLive = document.getElementById("videoLive"); // ux video, to use custom sizes.
@@ -61,17 +60,20 @@ document.addEventListener("DOMContentLoaded", function() {
         let state = data.classIndex;
 
         if (state === 2) {
-          prediction.innerText = `ATTENTION!!!! THERE IS MOUSE IN YOUR APARTMENT!!!`;
-          await axios.post("http://localhost:1338/api/messages", {
+          prediction.innerText = `ATTENTION! THERE IS A MOUSE IN YOUR APARTMENT!!!!`;
+          await axios.post("http://localhost:1338/api/thunkM", {
             mouse: true
           });
         } else if (state === 1) {
-          prediction.innerText = `Something is covering the camera - please make sure there is visibility`;
+          prediction.innerText = `Oohhh!! What a cute dog you have in there!`;
+          await axios.post("http://localhost:1338/api/thunkM/dog", {
+            mouse: false
+          });
         } else {
-          prediction.innerText = `House is clean from mice`;
+          prediction.innerText = `Cat-Feeder is working now...`;
         }
       });
-    }, 250);
+    }, 500);
   }
 
   // Camera Access.

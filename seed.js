@@ -1,4 +1,4 @@
-const { db, Message } = require("./server/db/message");
+const { db, Message, Interim } = require("./server/db/message");
 const Sequelize = require("sequelize");
 
 const { green, red } = require("chalk");
@@ -8,21 +8,26 @@ const seed = async () => {
 
   //Messages
 
-  const mouse = await Message.create({
+  const connection = await Message.create({
     to: "+19179325623",
     from: "+19735878503",
-    body: "There is a mouse in your apartment!",
-    mouse: true
-  });
-
-  const noMouse = await Message.create({
-    to: "+19179325623",
-    from: "+19735878503",
-    body: "There is NO mouse in your apartment, rest assure :)",
+    message: "Connection has been established!",
     mouse: false
   });
 
-  const message = [mouse, noMouse];
+  // const noMouse = await Message.create({
+  //   to: "+19179325623",
+  //   from: "+19735878503",
+  //   body: "There is NO mouse in your apartment, rest assure :)",
+  //   mouse: false
+  // });
+
+  const message = [connection];
+
+  const interim1 = await Interim.create({
+    counter: 1,
+    mouse: false
+  });
 
   console.log(green("Seeding success!"));
   db.close();

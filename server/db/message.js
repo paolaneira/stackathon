@@ -19,4 +19,13 @@ const Message = db.define("message", {
   }
 });
 
-module.exports = { db, Message };
+const Interim = db.define("interim", {
+  counter: {
+    type: Sequelize.INTEGER
+  },
+  mouse: {
+    type: Sequelize.BOOLEAN
+  }
+});
+
+module.exports = { db, Message, Interim };

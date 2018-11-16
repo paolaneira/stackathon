@@ -3,6 +3,7 @@
 const router = require("express").Router();
 
 router.use("/messages", require("./messages"));
+router.use("/thunkM", require("./thunkM"));
 
 router.use((req, res, next) => {
   const err = new Error("API route not found!");
